@@ -6,13 +6,14 @@ public class WrongPasswordExecption extends RuntimeException{
     private String confirmPassword;
 
     public WrongPasswordExecption(String password) {
-        super("Некорретный пароль: %s".formatted(password));
+        super("Некорретный пароль");
         this.password = password;
     }
 
     public WrongPasswordExecption(String password, String confirmPassword) {
-        super("Пароль: %s отличается от: %s".formatted(password,confirmPassword));
+        super("Введенные пароли отличаются");
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getPassword() {

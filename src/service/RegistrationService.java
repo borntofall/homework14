@@ -26,14 +26,14 @@ public class RegistrationService {
 
     private static void registrationPassword(String password, String confirmPassword) {
         if (!password.equals(confirmPassword)) {
-            throw new WrongPasswordExecption(password);
+            throw new WrongPasswordExecption(password,confirmPassword);
         }
         if (password.length() > 20) {
             throw new WrongPasswordExecption(password);
         }
         for (int i = 0; i < password.length(); i++) {
-            if (!VALID_SYMBOLS.contains(String.valueOf(password.charAt(i)))){
-                throw new WrongPasswordExecption(password,confirmPassword);
+            if (!VALID_SYMBOLS.contains(String.valueOf(password.charAt(i)))) {
+                throw new WrongPasswordExecption(password, confirmPassword);
             }
         }
     }
